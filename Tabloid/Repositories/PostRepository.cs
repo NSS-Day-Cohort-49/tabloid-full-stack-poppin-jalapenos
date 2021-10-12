@@ -24,7 +24,9 @@ namespace Tabloid.Repositories
 	                       c.[Name]
                     FROM Post p
                     LEFT JOIN UserProfile up ON p.UserProfileId = up.Id
-                    LEFT JOIN Category c ON p.CategoryId = c.Id";
+                    LEFT JOIN Category c ON p.CategoryId = c.Id
+                    WHERE p.PublishDateTime < SYSDATETIME() AND p.IsApproved = 'true'
+                    ORDER BY p.PublishDateTime DESC";
 
             List<Post> posts = new List<Post>();
 
