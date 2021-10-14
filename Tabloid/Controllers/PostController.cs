@@ -42,6 +42,17 @@ namespace Tabloid.Controllers
             var posts = _postRepository.GetUserPosts(currentUser.Id);
             return Ok(posts);
         }
+        [HttpGet("GetPostById/{id}")]
+        public IActionResult GetPostById(int id)
+        {
+            var post = _postRepository.GetPostById(id);
+            if (post == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(post);
+        }
 
         private UserProfile GetCurrentUserProfile()
         {
