@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Post } from "./Post.js";
-import { getByUser } from "../modules/postManager.js";
+import { getByUser } from "../../modules/postManager.js";
 
 export const MyPost = () => {
   const [posts, SetPosts] = useState([]);

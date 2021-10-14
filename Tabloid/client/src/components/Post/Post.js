@@ -1,12 +1,17 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { Card, CardBody } from "reactstrap";
-import "../styles/post.css";
+
 
 export const Post = ({ post }) => {
+
+    const history = useHistory();
+
     return (
         <Card>
             <p className="post-title">
-                <h2>{post.title}</h2>
+                <h2 onClick={() => {
+                    history.push(`/GetPostById/${post.id}`)}}>{post.title}</h2>
                 Category: {post.category.name}
             </p>
             <CardBody>
