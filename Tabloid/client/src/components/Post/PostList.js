@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { getAllPosts } from "../modules/postManager.js";
+import { getAllPosts } from "../../modules/postManager.js";
 import { Post } from "./Post.js"
-import "../styles/post.css";
+
 
 export const PostList = () => {
     const [ posts, setPosts ] = useState([]);
