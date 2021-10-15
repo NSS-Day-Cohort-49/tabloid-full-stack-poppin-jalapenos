@@ -222,7 +222,7 @@ namespace Tabloid.Repositories
                 {
                     cmd.CommandText = @"
                                         DELETE FROM POST
-                                        WHERE p.Id = @Id";
+                                        WHERE Id = @Id";
                     DbUtils.AddParameter(cmd, "@Id", id);
                     cmd.ExecuteNonQuery();
                 }
