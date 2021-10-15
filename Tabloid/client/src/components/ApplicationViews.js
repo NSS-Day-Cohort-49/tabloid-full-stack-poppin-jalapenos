@@ -6,6 +6,7 @@ import { PostList } from "./Post/PostList.js";
 import { MyPost } from "./Post/MyPost.js";
 import { PostDetail } from "./Post/PostDetail";
 import { PostForm } from "./Post/PostForm";
+import { EditPost } from "./Post/EditPost";
 
 export default function ApplicationViews({ isLoggedIn }) {
   return (
@@ -25,6 +26,10 @@ export default function ApplicationViews({ isLoggedIn }) {
 
         <Route path="/create" exact>
           {isLoggedIn ? <PostForm /> : <Redirect to="/login" />}
+        </Route>
+
+        <Route path="/GetPostById/edit/:id(\d+)" exact>
+          {isLoggedIn ? <EditPost /> : <Redirect to="/login" />}
         </Route>
 
         <Route path="/login">

@@ -65,16 +65,18 @@ export const addPost = (post) => {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(post)
-    }).then(resp => {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(post),
+    }).then((resp) => {
       if (resp.ok) {
         return resp.json();
       } else if (resp.status === 401) {
         throw new Error("Unauthorized");
       } else {
-        throw new Error("An unknown error occurred while trying to save a new post.");
+        throw new Error(
+          "An unknown error occurred while trying to save a new post.",
+        );
       }
     });
   });
@@ -86,8 +88,21 @@ export const deletePost = (id) => {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json"
-      }
-    })
-  })
-}
+        "Content-Type": "application/json",
+      },
+    });
+  });
+};
+
+export const editPost = (post) => {
+  return getToken().then((token) => {
+    return fetch(`{apiUrl}/${post.id}`, {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(post),
+    });
+  });
+};

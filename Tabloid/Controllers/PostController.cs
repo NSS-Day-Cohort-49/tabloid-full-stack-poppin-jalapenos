@@ -71,6 +71,25 @@ namespace Tabloid.Controllers
             return NoContent();
         }
 
+        [HttpPut("{id}")]
+        public IActionResult Put(int id, Post post)
+        {
+            var currentUser = GetCurrentUserProfile();
+
+            if (id != post.Id)
+            {
+                return BadRequest();
+            }
+
+            if (currentUser.Id != post.UserProfileId)
+            {
+                return Unauthorized();
+            }
+                
+            _postRepository.EditPost(post);
+            return NoContent();
+        }
+
 
         private UserProfile GetCurrentUserProfile()
         {
