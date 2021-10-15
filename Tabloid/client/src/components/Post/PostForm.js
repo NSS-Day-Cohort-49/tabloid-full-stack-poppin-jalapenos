@@ -73,6 +73,7 @@ return (
       <FormGroup>
         <Label for="categoryId">CategoryId:</Label>
         <Input
+          type="int"
           id="categoryId"
           onChange={handleInputChange}
           value={post.categoryId}

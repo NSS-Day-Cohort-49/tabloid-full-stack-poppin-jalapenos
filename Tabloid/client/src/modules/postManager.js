@@ -82,7 +82,7 @@ export const addPost = (post) => {
 
 export const deletePost = (id) => {
   return getToken().then((token) => {
-    fetch(`${baseUrl}/${id}`, {
+    fetch(`${apiUrl}/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,

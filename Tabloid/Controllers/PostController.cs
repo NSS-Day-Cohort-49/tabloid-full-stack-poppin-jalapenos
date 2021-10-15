@@ -62,9 +62,15 @@ namespace Tabloid.Controllers
             post.IsApproved = false;
             _postRepository.AddPost(post);
             return CreatedAtAction(nameof(Get), new { id = post.Id }, post);
-
-
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            _postRepository.DeletePost(id);
+            return NoContent();
+        }
+
 
         private UserProfile GetCurrentUserProfile()
         {
