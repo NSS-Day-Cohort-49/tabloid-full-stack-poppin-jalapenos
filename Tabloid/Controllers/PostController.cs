@@ -67,6 +67,7 @@ namespace Tabloid.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
+            var currentUser = GetCurrentUserProfile();
             _postRepository.DeletePost(id);
             return NoContent();
         }
