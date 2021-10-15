@@ -6,6 +6,7 @@ import { PostList } from "./Post/PostList.js";
 import { MyPost } from "./Post/MyPost.js";
 import { PostDetail } from "./Post/PostDetail";
 import { PostForm } from "./Post/PostForm";
+import { CategoryList } from "./Category/CategoryList.js";
 
 export default function ApplicationViews({ isLoggedIn }) {
   return (
@@ -25,6 +26,10 @@ export default function ApplicationViews({ isLoggedIn }) {
 
         <Route path="/create" exact>
           {isLoggedIn ? <PostForm /> : <Redirect to="/login" />}
+        </Route>
+
+        <Route path="/categories" exact>
+          {isLoggedIn ? <CategoryList /> : <Redirect to="/login" />}
         </Route>
 
         <Route path="/login">
